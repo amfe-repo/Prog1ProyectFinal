@@ -41,18 +41,19 @@ public class LoginView extends javax.swing.JFrame {
         btn_login = new javax.swing.JLabel();
         btn_register = new javax.swing.JLabel();
         sp_login = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
+        sp_register = new javax.swing.JSeparator();
         pnl_container = new javax.swing.JPanel();
         LoginView = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         txt_password = new javax.swing.JPasswordField();
         jPanel3 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        btn_loginapp = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         txt_username = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -102,11 +103,12 @@ public class LoginView extends javax.swing.JFrame {
         sp_login.setBackground(new java.awt.Color(44, 106, 229));
         sp_login.setForeground(new java.awt.Color(60, 63, 65));
         sp_login.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jPanel1.add(sp_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 70, 110, 10));
+        sp_login.setOpaque(true);
+        jPanel1.add(sp_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 70, 110, 1));
 
-        jSeparator3.setBackground(new java.awt.Color(44, 106, 229));
-        jSeparator3.setForeground(new java.awt.Color(60, 63, 65));
-        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 130, 10));
+        sp_register.setForeground(new java.awt.Color(60, 63, 65));
+        sp_register.setOpaque(true);
+        jPanel1.add(sp_register, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 130, 1));
 
         pnl_container.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -137,12 +139,17 @@ public class LoginView extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(67, 194, 251));
 
-        jLabel6.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("LOGIN");
-        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_loginapp.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
+        btn_loginapp.setForeground(new java.awt.Color(255, 255, 255));
+        btn_loginapp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btn_loginapp.setText("LOGIN");
+        btn_loginapp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_loginapp.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_loginapp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_loginappMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -150,13 +157,13 @@ public class LoginView extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btn_loginapp, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btn_loginapp, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         LoginView.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 150, 38));
@@ -206,6 +213,9 @@ public class LoginView extends javax.swing.JFrame {
         btn_login.setForeground(new Color(112,112,112));
         btn_register.setForeground(new Color(44,106,229));
         
+        sp_login.setBackground(new Color(112,112,112));
+        sp_register.setBackground(new Color(44,106,229));
+        
         this.LoginView.setVisible(false);
         this.registerView.setVisible(true);
         
@@ -217,6 +227,9 @@ public class LoginView extends javax.swing.JFrame {
         
         btn_login.setForeground(new Color(44,106,229));
         btn_register.setForeground(new Color(112,112,112));
+        
+        sp_register.setBackground(new Color(112,112,112));
+        sp_login.setBackground(new Color(44,106,229));
         
         this.registerView.setVisible(false);
         this.LoginView.setVisible(true);
@@ -246,6 +259,12 @@ public class LoginView extends javax.swing.JFrame {
         if(String.valueOf(this.txt_password.getPassword()).isEmpty())
             this.txt_password.setText("Password");
     }//GEN-LAST:event_txt_passwordFocusLost
+
+    private void btn_loginappMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_loginappMouseClicked
+        MainView main = new MainView();
+        this.setVisible(false);
+        main.setVisible(true);
+    }//GEN-LAST:event_btn_loginappMouseClicked
 
     /**
      * @param args the command line arguments
@@ -285,20 +304,20 @@ public class LoginView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel LoginView;
     private javax.swing.JLabel btn_login;
+    private javax.swing.JLabel btn_loginapp;
     private javax.swing.JLabel btn_register;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JPanel pnl_container;
     private javax.swing.JSeparator sp_login;
+    private javax.swing.JSeparator sp_register;
     private javax.swing.JPasswordField txt_password;
     private javax.swing.JTextField txt_username;
     // End of variables declaration//GEN-END:variables
